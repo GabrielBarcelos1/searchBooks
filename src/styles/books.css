@@ -1,8 +1,12 @@
 .divBook{
     display: grid;
     grid-template-columns: 0.5fr 1fr;
+    background-color: white;
 }
 .imagemLivro{
     max-width: 150px;
-
+}
+.linkButton{
+    display: flex;
+    justify-content: center;
 }

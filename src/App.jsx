@@ -1,9 +1,10 @@
-import Finder from './components/Finder.jsx'
-
+import Routes from './routes'
 
 function App() {
   return (
-    <Finder/>
+    <div>
+      <Routes/>
+    </div>
   );
 }
 

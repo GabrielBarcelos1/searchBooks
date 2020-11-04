@@ -4,16 +4,22 @@ import '../styles/BookList.css'
 function BookList (props){
     
     return (
-        <div className="divBookList">
-            {props.arrBooks.map(teste=>{
-                {console.log(teste)}
-                return <Books
-                    title={teste.volumeInfo.title}
-                    publisher={teste.volumeInfo.publisher}
-                    urlImage={teste.volumeInfo?.imageLinks?.smallThumbnail || '../images/not-found.png'}
-                    authors={teste.volumeInfo.authors}
-                />
-            })}
+        <div>
+            <p className="pTotal">Total de livros encontrados: {props.totalBooks}</p>
+            <div className="divBookList">
+                
+                {props.arrBooks.map(teste=>{
+
+                    return <Books
+                        title={teste.volumeInfo.title}
+                        publisher={teste.volumeInfo.publisher}
+                        urlImage={teste.volumeInfo?.imageLinks?.smallThumbnail || '../images/not-found.png'}
+                        authors={teste.volumeInfo.authors}
+                        publishedDate={teste.volumeInfo.publishedDate}
+                        id={teste.id}
+                    />
+                })}
+            </div>
         </div>
     )
 
