@@ -41,7 +41,7 @@ O projeto SearchBooks foi desenvolvido para praticar conceitos de ReactJs, dentr
 
 ## 🌐 Frontend
 <h1 align="center">
-    <img  src="https://github.com/GabrielBarcelos1/pokedex/blob/master/searchBooks.gif" />
+    <img  src="https://github.com/GabrielBarcelos1/searchBooks/blob/master/searchBooks.gif" />
 </h1>
 
     
