@@ -19,6 +19,7 @@
   <a href="#-tecnologias">🚀 Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">💻 Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-frontend">🌐 Frontend</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Mobile(Responsividade)">📱 Frontend</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-executar">🔖Como Executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-contribuir">🤔 Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-licença">🧾 Licença</a>
@@ -44,12 +45,17 @@ O projeto SearchBooks foi desenvolvido para praticar conceitos de ReactJs, dentr
     <img  src="https://github.com/GabrielBarcelos1/searchBooks/blob/master/searchBooks.gif" />
 </h1>
 
+## 📱 Mobile(Responsividade)
+<h1 align="center">
+    <img  src="https://github.com/GabrielBarcelos1/searchBooks/blob/master/searchBooksMobile%20.gif" />
+</h1>
+
     
 ## 🔖 Como Executar
 
 #### Clonando o projeto
 ```sh
-git clone https://github.com/GabrielBarcelos1/pokedex.git
+git clone https://github.com/GabrielBarcelos1/searchBooks.git
 cd pokedex
 Depois disso é so mecher no projeto.
 ```
