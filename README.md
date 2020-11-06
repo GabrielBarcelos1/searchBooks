@@ -40,6 +40,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 O projeto SearchBooks foi desenvolvido para praticar conceitos de ReactJs, dentre esses conceitos estão, hooks, consumo de apis externas com axios componentização,resposividade e rotas com react-router-dom. essa aplicação foi feita para busca de livros, onde usario entra, pesquisa nome do livro, autor ou editora e o site retorna os resultados desejados com todas as informações sobre os livros, foi utilizado para esse projeto a api de livros do google.
 
+Site hospedado: https://finderbooksgabriel.herokuapp.com/
+
 ## 🌐 Frontend
 <h1 align="center">
     <img  src="https://github.com/GabrielBarcelos1/searchBooks/blob/master/searchBooks.gif" />
