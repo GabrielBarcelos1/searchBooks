@@ -15,7 +15,7 @@ function Finder() {
           setLoadingGif(false)
           setLoading(true)
             const userSearch = document.getElementById("userSearch").value
-          Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${userSearch}&maxResults=39`).then(res=>{
+            Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${userSearch}&maxResults=39`).then(res=>{
             setLoadingGif(true)
             console.log("entrei no then")
             setArrBooks(res.data.items)
