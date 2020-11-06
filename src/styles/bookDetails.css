@@ -1,6 +1,102 @@
 .divBookDetails{
-    background-color: white;
-    width: 55vw;
-    height: 55vh;
+
     margin: 200px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.divInnerBookDetails{
+    max-width: 30vw;
+    padding: 20px;
+    background-color: #A191FD ; 
+}
+.divInnerBookDetails img{
+    padding-top: 10px;
+}
+.divInnerBookDetails p{
+    padding-top: 10px;
+}
+.divDescription{
+    background-color: #A191FD ; 
+    margin-left: 20px;
+    max-width: 30vw;
+    padding: 20px;
+    height: auto;
+}
+.divDescription p{
+   padding-top: 10px;
+}
+.divButtons{
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #a958d1;
+	background:linear-gradient(to bottom, #a161eb 5%, #49349e 100%);
+	background-color:#a161eb;
+	border-radius:6px;
+	border:1px solid #513d75;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #76399e;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #49349e 5%, #a161eb 100%);
+	background-color:#49349e;
+}
+.myButton:active{
+	position:relative;
+	top:1px;
+}
+
+
+@media screen and (max-width:1334px){
+    .divBookDetails{
+        flex-direction: column;
+        align-items: center;
+    }
+    .divDescription{
+        margin-left: 0;
+    }
+    .divInnerBookDetails{
+        width: 60vw;
+        max-width: 60vw;
+    }
+  
+    .divDescription{
+        max-width: 60vw;
+     
+    }
+
+}
+@media screen and (max-width:1100px){
+    .divInnerBookDetails{
+        width: 70vw;
+        max-width: 70vw;
+    }
+  
+    .divDescription{
+        max-width: 70vw;
+     
+    }
+}
+@media screen and (max-width:550px){
+    .divInnerBookDetails{
+        width: 90vw;
+        max-width: 90vw;
+    }
+  
+    .divDescription{
+        max-width: 90vw;
+     
+    }
 }
