@@ -10,7 +10,8 @@
 .divInnerBookDetails{
     max-width: 30vw;
     padding: 20px;
-    background-color: #A191FD ; 
+    background-color: #A191FD ;
+    border-radius: 20px;
 }
 .divInnerBookDetails img{
     padding-top: 10px;
@@ -24,9 +25,11 @@
     max-width: 30vw;
     padding: 20px;
     height: auto;
+    border-radius: 20px;
 }
 .divDescription p{
    padding-top: 10px;
+   
 }
 .divButtons{
     padding: 20px;
