@@ -11,26 +11,20 @@
     color: #41367a;
 }
 .myButton {
-	box-shadow:inset 0px 1px 0px 0px #a958d1;
-	background:linear-gradient(to bottom, #a161eb 5%, #49349e 100%);
-	background-color:#a161eb;
-	border-radius:6px;
-	border:1px solid #513d75;
+	border:1px solid #549AE6;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:10px 42px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #76399e;
+  text-shadow:0px 1px 0px #549AE6;
+  border-radius: 20px;
+	background-color: #549AE6;
 	margin-bottom: 20px;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #49349e 5%, #a161eb 100%);
-	background-color:#49349e;
-}
+	}
 .myButton:active {
 	position:relative;
 	top:1px;

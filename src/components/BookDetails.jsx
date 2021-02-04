@@ -1,10 +1,11 @@
+import React from 'react'
 import {useEffect,useState} from 'react'
 import {Link} from 'react-router-dom'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import { AiTwotoneStar, AiOutlineHeart } from "react-icons/ai";
 import Finder from './Finder'
-
+import { BookContext } from '../providers/ContextBook'
 import '../styles/bookDetails.css'
 
 function BookDetails(){
@@ -19,7 +20,9 @@ function BookDetails(){
     const [urlBuy,setUrlBuy] = useState("")
     const {id} = useParams()
     const [price, setPrice] = useState("")
+    const [coin, setCoin] = useState("")
     const [favorited, setFavorited] = useState("spanHeartOff")
+   
     useEffect(() => {
         axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`).then(res=>{
             setUrlImage(res.data.volumeInfo.imageLinks.smallThumbnail)
@@ -32,7 +35,8 @@ function BookDetails(){
             setDescription(res.data.volumeInfo.description)
             setDescription(res.data.volumeInfo.description)
             setUrlBuy(res.data.volumeInfo.canonicalVolumeLink)
-            setPrice(res.data?.saleInfo?.listPrice?.amount  || "Preço indisponivel" )
+            setPrice(res.data?.saleInfo?.listPrice?.amount  || "?.??" )
+            
         })
     }, [])
     function favoriteBook(){
@@ -42,10 +46,11 @@ function BookDetails(){
             setFavorited("spanHeartOff")
         }
     }
-   
+    const BookContextComponent = React.useContext(BookContext)
     
     return(
         <div className="all">
+            {console.log(BookContextComponent)}
             <Finder/>
             <div className="divBookDetails">
                 
@@ -53,11 +58,16 @@ function BookDetails(){
                     <div className="pictureTitle">
                         <img src={urlImage} />
                         <div className="moreInfos">
-                        <h2>{<a>{bookTitle == undefined ? "Titulo indefinido" : bookTitle }</a>}</h2>
+                        <h2 className="moreInfosTitle">{<a>{bookTitle == undefined ? "Titulo indefinido" : bookTitle }</a>}</h2>
                             <p className="ByFor">By: <a>{author == undefined ? "Autor indefinido" : author }</a></p>
                             <div className="bottomMoreInfos">
+                                <p>$</p>
                                 <p>{price === undefined ? "unpriced": price}</p>
-                                <p><AiTwotoneStar className="star"/> {averageRating == undefined ? "Avaliação indefinida" : averageRating } </p>
+                                <p className="StarGroup"><AiTwotoneStar className="star"/>
+                                   <AiTwotoneStar className="star"/>
+                                   <AiTwotoneStar className="star"/>
+                                   <AiTwotoneStar className="star"/>
+                                   <AiTwotoneStar className="star"/></p>
                             </div>
                         </div>
                     </div>
@@ -74,7 +84,7 @@ function BookDetails(){
                     
                 </div>
                 <div className="divDescription">
-                <p>{description}</p>
+                {description}
                 <div className="divButtons">
             
                 </div>

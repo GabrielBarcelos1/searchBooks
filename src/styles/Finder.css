@@ -47,6 +47,8 @@
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     background-color: #FFE207;
+    text-align: center;
+    font-size: 18px;
 }
 input[type=text]:focus {
     background-color: #FFE207;
@@ -60,10 +62,14 @@ input[type=text]:focus {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: #FFE207;
+    color: #877703;
+    font-size: 25px;
 }
 .Buttonback{
     width: 20%;
     margin-left: 20px;
+    font-size: 20px;
+    color: #9D8B04;
 }
 .inputFinder:focus{
     border: 0;

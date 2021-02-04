@@ -15,10 +15,12 @@ function Finder() {
     const [showMore, setShowMore] = useState(12)
     const {id} = useParams()
     useEffect(()=>{
-      findBoooks()
+      findBoooks(13)
   },[showMore])
-    const findBoooks = () =>{
-        function  findBoooksAsync(){
+    const findBoooks = (e) =>{
+        function  findBoooksAsync(e){
+
+          if(e == 13 ||    e?.charCode  === 13){
           const userSearch = document.getElementById("userSearch").value
             if(userSearch!==""){
             setLoadingGif(false)
@@ -33,9 +35,9 @@ function Finder() {
             }
             ).catch(error=>{
               console.log("erro" + error)
-            })}
+            })}}
         }
-        findBoooksAsync()
+        findBoooksAsync(e)
     }
     function ShowMoreFunction(){
       setShowMore(showMore => showMore + 6)
@@ -50,9 +52,9 @@ function Finder() {
               <Link to="/finder">
               <a className="Buttonback" ><AiOutlineArrowLeft/></a>
               </Link>
-              <input type="text" placeholder="nome do livro desejado" id="userSearch" className="inputFinder"  autocomplete="off"/>
+              <input type="text" placeholder="nome do livro desejado" id="userSearch" className="inputFinder"  autocomplete="off" onKeyPress={(e)=>findBoooks(e)}/>
 
-              { id === undefined ? <a onClick={findBoooks} className="buttonFinder"><AiOutlineSearch/></a>:
+              { id === undefined ? <a onClick={()=>findBoooks(13)} className="buttonFinder"><AiOutlineSearch/></a>:
                 <Link to="/finder">
                   <a onClick={findBoooks} className="buttonFinder"><AiOutlineSearch/></a>
                 </Link>
