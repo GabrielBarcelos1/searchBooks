@@ -5,9 +5,8 @@ function BookList (props){
     
     return (
         <div>
-            <p className="pTotal">{props.apperTotal == false ? "" : `Livros Encontrados: ${props.totalBooks}`}</p>
+            {/* <p className="pTotal">{props.apperTotal == false ? "" : `Livros Encontrados: ${props.totalBooks}`}</p> */}
             <div className="divBookList">
-                {console.log(props.loading)}
                 {props.arrBooks.map(teste=>{
 
                     return <Books

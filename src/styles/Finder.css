@@ -1,17 +1,33 @@
 .divFinderBar{
     display: flex;
     justify-content: center;
-    margin-bottom: 100px;
-    margin-top: 100px;
+    width: 100%;
+    flex-direction: column;
+    height: 70px;
+    background-color: #FFE207;
+}
+
+.divToAfter{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.after{
+    margin: 0 auto;
+    height: 2px;
+    width: 150px;
+    background-color: #F2D70B;
+    margin-top: 10px;
 }
 .esconder{
     display: none;
 }
 .divFinder{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 .divFinder .fotoSearch{
     padding-top: 50px;
@@ -30,16 +46,24 @@
     padding-left: 15px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    background-color: #FFE207;
 }
+input[type=text]:focus {
+    background-color: #FFE207;
+  }
 .buttonFinder{
     height: 50px;
     width: 50px;
-    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px
+    border-bottom-right-radius: 10px;
+    background-color: #FFE207;
+}
+.Buttonback{
+    width: 20%;
+    margin-left: 20px;
 }
 .inputFinder:focus{
     border: 0;

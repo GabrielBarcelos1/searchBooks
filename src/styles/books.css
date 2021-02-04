@@ -1,10 +1,3 @@
-.divBook{
-    display: grid;
-    grid-template-columns: 0.5fr 1fr;
-    background-color: #A191FD ; 
-    border-radius: 10px;
-}
-
 .imagemLivro{
     max-width: 150px;
 }
@@ -12,12 +5,7 @@
     display: flex;
     justify-content: center;
 }
-.divBookImage{
-    padding: 10px;
-}
-.divBookInfo{
-    padding: 10px;
-}
+
 .divBookInfo div{
     padding-top: 10px;
 }
