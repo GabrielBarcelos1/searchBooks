@@ -85,4 +85,13 @@ input[type=text]:focus {
     border: 0;
     background-color: white;
 }
+.menuIten{
+    text-decoration: none;
+    color: black;
+    padding: 10px 0;
+}
+.menuItens{
+    display: flex;
+    flex-direction: column;
+}
 

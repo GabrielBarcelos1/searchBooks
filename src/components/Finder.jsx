@@ -83,12 +83,13 @@ function Finder() {
           </div>
           {menuActive && id === undefined ? 
               <div className="menuItens">
-                <Link to="/liked/1">
-                  <p>Liked</p>
-                </Link>
-                <Link to="/">
+                <Link to="/"  className="menuIten">
                   <p>Home</p>
                 </Link>
+                <Link to="/liked/1"  className="menuIten" > 
+                  <p>Liked</p>
+                </Link>
+                
               </div>
               : ""}
           {id === undefined ?<img src={search} className={Loading ? "esconder" : "fotoSearch"}/>: ""}
