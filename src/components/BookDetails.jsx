@@ -5,6 +5,7 @@ import axios from 'axios'
 import { AiTwotoneStar, AiOutlineHeart } from "react-icons/ai";
 import Finder from './Finder'
 import { BookContext } from '../providers/ContextBook'
+import ReactStars from "react-rating-stars-component";
 import '../styles/bookDetails.css'
 
 function BookDetails(){
@@ -22,6 +23,7 @@ function BookDetails(){
     const [coin, setCoin] = useState("")
     const [favorited, setFavorited] = useState("spanHeartOff")
     const {books, setBooks} = React.useContext(BookContext)
+    
    
     useEffect(() => {
         axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`).then(res=>{
@@ -78,6 +80,9 @@ function BookDetails(){
             console.log(books)
         }
     }
+    const ratingChanged = (newRating) => {
+        console.log(newRating);
+      };
     
     
     return(
@@ -94,12 +99,14 @@ function BookDetails(){
                             <div className="bottomMoreInfos">
                                 <p>$</p>
                                 <p>{price === undefined ? "unpriced": price}</p>
-                                <p className="StarGroup"><AiTwotoneStar className="star"/>
-                                   <AiTwotoneStar className="star"/>
-                                   <AiTwotoneStar className="star"/>
-                                   <AiTwotoneStar className="star"/>
-                                   <AiTwotoneStar className="star"/></p>
-                            </div>
+                                <ReactStars
+                                    count={5}
+                                    value={3}
+                                    onChange={ratingChanged}
+                                    size={24}
+                                    activeColor="#ffd700"
+                                />
+                                </div>
                         </div>
                     </div>
                     <div className="PagesBuyContainer">
