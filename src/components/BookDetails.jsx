@@ -1,6 +1,5 @@
 import React from 'react'
 import {useEffect,useState} from 'react'
-import {Link} from 'react-router-dom'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import { AiTwotoneStar, AiOutlineHeart } from "react-icons/ai";
@@ -22,6 +21,7 @@ function BookDetails(){
     const [price, setPrice] = useState("")
     const [coin, setCoin] = useState("")
     const [favorited, setFavorited] = useState("spanHeartOff")
+    const {books, setBooks} = React.useContext(BookContext)
    
     useEffect(() => {
         axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`).then(res=>{
@@ -38,19 +38,50 @@ function BookDetails(){
             setPrice(res.data?.saleInfo?.listPrice?.amount  || "?.??" )
             
         })
+        for(let i=0; i<= books.length; i++){
+            if(books[i]?.id === id){
+                setFavorited("spanHeartOn")
+            }
+            console.log("for")
+        }
+
     }, [])
     function favoriteBook(){
         if(favorited === "spanHeartOff"){
             setFavorited("spanHeartOn")
+            const seen = new Set();
+            let array = books
+            array.push({
+                urlImage: urlImage,
+                id : id
+            })
+            const filteredArr = array.filter(el => {
+                const duplicate = seen.has(el.id);
+                seen.add(el.id);
+                return !duplicate;
+              });
+            setBooks(filteredArr)
+            console.log(books)
         }else{
             setFavorited("spanHeartOff")
+            let array = books
+            console.log(array.length)
+            for(let i=0; i<=array.length; i++){
+                if(array[i]?.id === id){
+                    array.splice(i,1)
+                    
+                }
+                console.log("for")
+            }
+            console.log(array)
+            setBooks(array)
+            console.log(books)
         }
     }
-    const BookContextComponent = React.useContext(BookContext)
+    
     
     return(
         <div className="all">
-            {console.log(BookContextComponent)}
             <Finder/>
             <div className="divBookDetails">
                 

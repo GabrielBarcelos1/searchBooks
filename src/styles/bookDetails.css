@@ -8,6 +8,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    margin-top: 65px;
 }
 
 .divInnerBookDetails{
@@ -57,6 +58,7 @@
     text-shadow:0px 1px 0px #549AE6;
     border-radius: 20px;
     background-color: #549AE6;
+    margin-top: 6px;
 }
 .myButton:active{
 	position:relative;
@@ -88,6 +90,8 @@
     color: white;
     border-color: white;
     border: 1px solid;
+    margin-bottom: 14px;
+    
 }
 .spanHeartOn{
     display: flex;
@@ -99,6 +103,7 @@
     background:#E05568;
     border-radius: 100%;
     color: white;
+    margin-bottom: 14px;
 }
 .QuantityPages{
     font-size: 13px;

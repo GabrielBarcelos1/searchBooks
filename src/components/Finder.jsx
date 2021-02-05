@@ -1,10 +1,13 @@
+import React from 'react'
 import {useState ,useEffect} from 'react'
 import '../styles/Finder.css'
 import Axios from 'axios'
 import BookList from './BooksList'
 import search from '../images/search.svg'
-import { AiOutlineSearch, AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineArrowLeft, AiOutlineMenu } from "react-icons/ai";
 import { Link, useParams } from 'react-router-dom'
+import { BookContext } from '../providers/ContextBook'
+
 function Finder() {
   
     const [arrBooks, setArrBooks] = useState([])
@@ -13,7 +16,9 @@ function Finder() {
     const [loadingGif, setLoadingGif] = useState(true)
     const [apperTotal, setApperTotal] = useState(false)
     const [showMore, setShowMore] = useState(12)
+    const [menuActive ,setMenuActive] = useState(true)
     const {id} = useParams()
+    const {valueInput,setValueInput} = React.useContext(BookContext)
     useEffect(()=>{
       findBoooks(13)
   },[showMore])
@@ -44,15 +49,27 @@ function Finder() {
       console.log(showMore)
       findBoooks()
     }
+    function menuAnimation(){
+      if(menuActive){
+        setMenuActive(false)
+      }else{
+        setMenuActive(true)
+      }
+    }
+    function inputAtt(e){
+      setValueInput(e.target.value)
+      console.log(valueInput)
+    }
 
     return (
       <div className="divFinder">
         <div className="divFinderBar">
             <div className="divToAfter">
-              <Link to="/finder">
+              {id === undefined ? <i className="menu" onClick={()=>menuAnimation()}><AiOutlineMenu/></i>:
+                <Link to="/finder">
               <a className="Buttonback" ><AiOutlineArrowLeft/></a>
-              </Link>
-              <input type="text" placeholder="nome do livro desejado" id="userSearch" className="inputFinder"  autocomplete="off" onKeyPress={(e)=>findBoooks(e)}/>
+              </Link>}
+              <input type="text" placeholder="nome do livro desejado" id="userSearch" className="inputFinder" value={valueInput} autocomplete="off" onKeyPress={(e)=>findBoooks(e)} onChange={(e)=>inputAtt(e)}/>
 
               { id === undefined ? <a onClick={()=>findBoooks(13)} className="buttonFinder"><AiOutlineSearch/></a>:
                 <Link to="/finder">
@@ -60,17 +77,29 @@ function Finder() {
                 </Link>
               }
             </div>
-            <div className="after">
-            </div>
+              <div className="after">
+              </div>
+             
           </div>
+          {menuActive && id === undefined ? 
+              <div className="menuItens">
+                <Link to="/liked/1">
+                  <p>Liked</p>
+                </Link>
+                <Link to="/">
+                  <p>Home</p>
+                </Link>
+              </div>
+              : ""}
           {id === undefined ?<img src={search} className={Loading ? "esconder" : "fotoSearch"}/>: ""}
           <img src="https://i.stack.imgur.com/kOnzy.gif" className={loadingGif ? "esconder" : "gif"}/>
+          {id === undefined ?
           <BookList
           arrBooks= {arrBooks}
           totalBooks={totalBooks}
           apperTotal={apperTotal}
-          />
-          {apperTotal ? <a className="myButton" onClick={ ()=> ShowMoreFunction()}>Show More</a> : ""}
+          />: ""}
+          {apperTotal && id === undefined ? <a className="myButton" onClick={ ()=> ShowMoreFunction()}>Show More</a> : ""}
       </div>
       
     );

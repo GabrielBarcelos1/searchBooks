@@ -10,11 +10,7 @@ function BookList (props){
                 {props.arrBooks.map(teste=>{
 
                     return <Books
-                        title={teste.volumeInfo.title}
-                        publisher={teste.volumeInfo.publisher}
-                        urlImage={teste.volumeInfo?.imageLinks?.smallThumbnail || '../images/not-found.png'}
-                        authors={teste.volumeInfo.authors}
-                        publishedDate={teste.volumeInfo.publishedDate}
+                        urlImage={teste.volumeInfo?.imageLinks?.smallThumbnail || teste.urlImage || '../images/not-found.png'}
                         id={teste.id}
                     />
                 })}
