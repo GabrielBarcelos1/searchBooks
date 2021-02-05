@@ -16,7 +16,7 @@ function Finder() {
     const [loadingGif, setLoadingGif] = useState(true)
     const [apperTotal, setApperTotal] = useState(false)
     const [showMore, setShowMore] = useState(12)
-    const [menuActive ,setMenuActive] = useState(true)
+    const [menuActive ,setMenuActive] = useState(false)
     const {id} = useParams()
     const {valueInput,setValueInput} = React.useContext(BookContext)
     useEffect(()=>{
