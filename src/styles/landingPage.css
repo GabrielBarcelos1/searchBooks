@@ -2,13 +2,13 @@
     display: flex;
     justify-content: space-between;
     width: 50%;
-    margin: 250px auto;
+    margin: 100px auto;
 }
 .p1{
     font-size: 3rem;
 }
 .wordBook{
-    color: #41367a;
+    color: rgb(135, 119, 3);
 }
 .myButton {
 	border:1px solid #549AE6;
@@ -29,6 +29,21 @@
 	position:relative;
 	top:1px;
 }
+.searchHome{
+	border-radius: 100px;
+    background: white;
+    padding: 12px;
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchHome input{
+	border: 0;
+	background-color: white !important;
+	font-size: 15px;
+}
 @media screen and (max-width: 760px){
 	.divPrincipalHome{
 		flex-direction: column;
@@ -38,6 +53,8 @@
 	}
 	.p2{
 		text-align: center;
+		font-size: 28px;
+		font-weight: 700;
 	}
 	.divConteudoHome{
 		display: flex;
