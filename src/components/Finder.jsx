@@ -7,8 +7,13 @@ import search from '../images/search.svg'
 import { AiOutlineSearch, AiOutlineArrowLeft, AiOutlineMenu } from "react-icons/ai";
 import { Link, useParams } from 'react-router-dom'
 import { BookContext } from '../providers/ContextBook'
+import { useHistory } from 'react-router-dom'
+import "side-drawer"
+
+
 
 function Finder() {
+  
   
     const [arrBooks, setArrBooks] = useState([])
     const [totalBooks, setTotalBooks] = useState(0)
@@ -16,38 +21,44 @@ function Finder() {
     const [loadingGif, setLoadingGif] = useState(true)
     const [apperTotal, setApperTotal] = useState(false)
     const [showMore, setShowMore] = useState(12)
-    const [menuActive ,setMenuActive] = useState(false)
+    const [maxStack, setMaxStack] = useState(false)
+    const [menuActive ,setMenuActive] = useState(undefined)
     const {id} = useParams()
     const {valueInput,setValueInput} = React.useContext(BookContext)
+    const history = useHistory()
     useEffect(()=>{
       findBoooks(13)
+      if(showMore>=40){
+        setMaxStack(true)
+      }
   },[showMore])
     const findBoooks = (e) =>{
         function  findBoooksAsync(e){
 
-          if(e == 13 ||    e?.charCode  === 13){
+          if(e === 13 ||    e?.charCode  === 13){
           const userSearch = document.getElementById("userSearch").value
             if(userSearch!==""){
             setLoadingGif(false)
             setLoading(true)
             Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${userSearch}&maxResults=${showMore}`).then(res=>{
             setLoadingGif(true)
-            console.log("entrei no then")
             setArrBooks(res.data.items)
             setTotalBooks(res.data.totalItems)
             setLoading(true)
             setApperTotal(true)
             }
             ).catch(error=>{
-              console.log("erro" + error)
             })}}
         }
         findBoooksAsync(e)
     }
     function ShowMoreFunction(){
-      setShowMore(showMore => showMore + 6)
-      console.log(showMore)
-      findBoooks()
+      if(showMore<=34){
+      setShowMore(showMore + 6)
+      }else{
+        setShowMore(40)
+      }
+
     }
     function menuAnimation(){
       if(menuActive){
@@ -58,18 +69,37 @@ function Finder() {
     }
     function inputAtt(e){
       setValueInput(e.target.value)
-      console.log(valueInput)
+    }
+    function redirect (e){
+      if(e.charCode === 13){
+        history.goBack()
+      }
+    }
+    function redirectBack(){
+      history.goBack()
     }
 
     return (
+      
       <div className="divFinder">
+        <side-drawer open={menuActive}>
+        <div className="menuItens">
+                <Link to="/"  className="menuIten">
+                  <p>Home</p>
+                </Link>
+                <Link to="/liked/1"  className="menuIten" > 
+                  <p>Favorites</p>
+                </Link>
+                
+        </div>
+        </side-drawer>
         <div className="divFinderBar">
             <div className="divToAfter">
+              
               {id === undefined ? <i className="menu" onClick={()=>menuAnimation()}><AiOutlineMenu/></i>:
-                <Link to="/finder">
-              <a className="Buttonback" ><AiOutlineArrowLeft/></a>
-              </Link>}
-              <input type="text" placeholder="nome do livro desejado" id="userSearch" className="inputFinder" value={valueInput} autocomplete="off" onKeyPress={(e)=>findBoooks(e)} onChange={(e)=>inputAtt(e)}/>
+              <a className="Buttonback" onClick={redirectBack}><AiOutlineArrowLeft/></a>}
+              {id === undefined ? <input type="text" placeholder="Name of the book" id="userSearch" className="inputFinder" value={valueInput} autoComplete="off" onKeyPress={(e)=>findBoooks(e)} onChange={(e)=>inputAtt(e)}/>: 
+              <input type="text" placeholder="Name of the book" id="userSearch" className="inputFinder" value={valueInput} autoComplete="off" onKeyPress={(e)=>redirect(e)} onChange={(e)=>inputAtt(e)}/>}
 
               { id === undefined ? <a onClick={()=>findBoooks(13)} className="buttonFinder"><AiOutlineSearch/></a>:
                 <Link to="/finder">
@@ -81,26 +111,16 @@ function Finder() {
               </div>
              
           </div>
-          {menuActive && id === undefined ? 
-              <div className="menuItens">
-                <Link to="/"  className="menuIten">
-                  <p>Home</p>
-                </Link>
-                <Link to="/liked/1"  className="menuIten" > 
-                  <p>Liked</p>
-                </Link>
-                
-              </div>
-              : ""}
           {id === undefined ?<img src={search} className={Loading ? "esconder" : "fotoSearch"}/>: ""}
-          <img src="https://i.stack.imgur.com/kOnzy.gif" className={loadingGif ? "esconder" : "gif"}/>
           {id === undefined ?
           <BookList
           arrBooks= {arrBooks}
           totalBooks={totalBooks}
           apperTotal={apperTotal}
           />: ""}
-          {apperTotal && id === undefined ? <a className="myButton" onClick={ ()=> ShowMoreFunction()}>Show More</a> : ""}
+           <img src="https://i.stack.imgur.com/kOnzy.gif" className={loadingGif ? "esconder" : "gif"} alt="loading"/>
+          {apperTotal && id === undefined && !maxStack ? <a className="myButton" onClick={ ()=> ShowMoreFunction()}>Show More</a> : ""}
+         
       </div>
       
     );

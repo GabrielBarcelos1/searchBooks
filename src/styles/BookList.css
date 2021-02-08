@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 20px;
     row-gap: 30px;
-    margin: 30px auto;
+    margin: 15px auto;
 }
 .pTotal{
     display: flex;
@@ -13,7 +13,7 @@
 
 @media screen  and (max-width: 1274px){
     .divBookList{
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
        
     }    
 
@@ -23,8 +23,7 @@
 }
 @media screen  and (max-width: 500px){
     .divBookList{
-        grid-template-columns: 1fr 1fr;
-        width: 90%;
+        grid-template-columns: 1fr 1fr 1fr;
     }    
 
 }

@@ -9841,6 +9841,11 @@ side-channel@^1.0.3, side-channel@^1.0.4:
     get-intrinsic "^1.0.2"
     object-inspect "^1.9.0"
 
+side-drawer@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/side-drawer/-/side-drawer-2.3.0.tgz#40add0e073e6c43c5cd3889a213d54a715033012"
+  integrity sha512-kEN7Foi6hCZMEhw8nfoNTfBF6rHTMNNVBCuTyXp9QMZS30poICCVDp0NRtk/aTbbqidtXUfawyWyueHi4Ifd1A==
+
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"

@@ -12,11 +12,12 @@
     width: 100%;
     justify-content: space-around;
     align-items: center;
+    height: 40px;
 }
 .after{
     margin: 0 auto;
     height: 2px;
-    width: 150px;
+    width: 125px;
     background-color: #F2D70B;
     margin-top: 10px;
 }
@@ -31,11 +32,11 @@
     margin-bottom: 65px;
 }
 .divFinder .fotoSearch{
-    padding-top: 50px;
+    padding-top: 170px;
 }
 .gif{
-    margin-top: 50px;
     width: 60px;
+    margin-bottom: 20px;
 }
 .inputFinder{
     height: 50px;
@@ -67,7 +68,7 @@ input[type=text]:focus {
     font-size: 25px;
 }
 .Buttonback{
-    width: 20%;
+    width: 5%;
     margin-left: 20px;
     font-size: 20px;
     color: #9D8B04;
@@ -80,6 +81,7 @@ input[type=text]:focus {
     align-items: center;
     justify-content: center;
     color: #7F7002;
+    margin-left: 17px;
 }
 .inputFinder:focus{
     border: 0;
@@ -93,5 +95,17 @@ input[type=text]:focus {
 .menuItens{
     display: flex;
     flex-direction: column;
+    margin-left: 30px;
+    margin-top: 20px;
 }
-
+side-drawer {
+    background-color: #FFE207;
+    color: inherit;
+    width: 350px;
+    max-width: 75vw;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+#d{
+    width: 5vw !important; 
+}

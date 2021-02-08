@@ -2,38 +2,32 @@ import React from 'react'
 import {useEffect,useState} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
-import { AiTwotoneStar, AiOutlineHeart } from "react-icons/ai";
+import {  AiOutlineHeart } from "react-icons/ai";
 import Finder from './Finder'
 import { BookContext } from '../providers/ContextBook'
 import ReactStars from "react-rating-stars-component";
 import '../styles/bookDetails.css'
+import imageNotFound from "../images/not-found.png"
 
 function BookDetails(){
     const [urlImage,setUrlImage] = useState("")
     const [bookTitle,setbookTitle] = useState("")
     const [author,setAuthor] = useState("")
-    const [publisher,setPublisher] = useState("")
-    const [publishedDate,setPublishedDate] = useState("")
     const [pageCount,setPageCount] = useState("")
-    const [averageRating,setAverageRating] = useState("")
     const [description,setDescription] = useState("")
     const [urlBuy,setUrlBuy] = useState("")
     const {id} = useParams()
     const [price, setPrice] = useState("")
-    const [coin, setCoin] = useState("")
     const [favorited, setFavorited] = useState("spanHeartOff")
-    const {books, setBooks} = React.useContext(BookContext)
+    const {books, setBooks , valueStar , setValueStar} = React.useContext(BookContext)
     
    
     useEffect(() => {
         axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`).then(res=>{
-            setUrlImage(res.data.volumeInfo.imageLinks.smallThumbnail)
+            setUrlImage(res.data.volumeInfo.imageLinks?.smallThumbnail)
             setbookTitle(res.data.volumeInfo.title)
             setAuthor(res.data.volumeInfo.authors)
-            setPublisher(res.data.volumeInfo.publisher)
-            setPublishedDate(res.data.volumeInfo.publishedDate)
             setPageCount(res.data.volumeInfo.pageCount)
-            setAverageRating(res.data.volumeInfo.averageRating)
             setDescription(res.data.volumeInfo.description)
             setDescription(res.data.volumeInfo.description)
             setUrlBuy(res.data.volumeInfo.canonicalVolumeLink)
@@ -44,7 +38,6 @@ function BookDetails(){
             if(books[i]?.id === id){
                 setFavorited("spanHeartOn")
             }
-            console.log("for")
         }
 
     }, [])
@@ -63,26 +56,45 @@ function BookDetails(){
                 return !duplicate;
               });
             setBooks(filteredArr)
-            console.log(books)
+    
         }else{
             setFavorited("spanHeartOff")
             let array = books
-            console.log(array.length)
             for(let i=0; i<=array.length; i++){
                 if(array[i]?.id === id){
                     array.splice(i,1)
                     
                 }
-                console.log("for")
             }
-            console.log(array)
             setBooks(array)
-            console.log(books)
         }
     }
-    const ratingChanged = (newRating) => {
-        console.log(newRating);
-      };
+    function ratingChanged(newRating){
+            let verificator = true
+            let array = valueStar
+            for(let i=0; i<= valueStar.length; i++){
+                if(valueStar[i]?.id === id){
+                  valueStar[i].starQuantity = newRating
+                  verificator = false
+                }
+          
+            }
+            if(verificator){
+                array.push({
+                    starQuantity: newRating,
+                    id : id
+            })
+            }
+            setValueStar(array)
+      }
+      function rating(){
+        for(let i=0; i<= valueStar.length; i++){
+            if(valueStar[i]?.id === id){
+                return valueStar[i].starQuantity
+            }
+        }
+      }
+
     
     
     return(
@@ -92,27 +104,32 @@ function BookDetails(){
                 
                 <div className="divInnerBookDetails">
                     <div className="pictureTitle">
-                        <img src={urlImage} />
+                        <img src={urlImage ? urlImage: imageNotFound }/>
                         <div className="moreInfos">
-                        <h2 className="moreInfosTitle">{<a>{bookTitle == undefined ? "Titulo indefinido" : bookTitle }</a>}</h2>
-                            <p className="ByFor">By: <a>{author == undefined ? "Autor indefinido" : author }</a></p>
+                        <h2 className="moreInfosTitle">{<a>{bookTitle === undefined ? "Titulo indefinido" : bookTitle }</a>}</h2>
+                            <p className="ByFor">By: <a>{author === undefined ? "Autor indefinido" : author }</a></p>
                             <div className="bottomMoreInfos">
-                                <p>$</p>
-                                <p>{price === undefined ? "unpriced": price}</p>
-                                <ReactStars
-                                    count={5}
-                                    value={3}
-                                    onChange={ratingChanged}
-                                    size={24}
-                                    activeColor="#ffd700"
-                                />
+                                <div className="divPrice">
+                                    <p>$</p>
+                                    <p>{price === undefined ? "unpriced": price}</p>
                                 </div>
+                                <div className="ratingStars">
+                                    <ReactStars
+                                        count={5}
+                                        value={rating()}
+                                        onChange={ratingChanged}
+                                        size={18}
+                                        activeColor="#594E04"
+                                        color="#cdb820"
+                                        />
+                                    </div>
+                                    </div>
                         </div>
                     </div>
                     <div className="PagesBuyContainer">
-                        <p className="QuantityPages">{pageCount == undefined ? "Numero de paginas indefinido" : pageCount } Pages</p>
+                        <p className="QuantityPages">{pageCount === undefined ? "Numero de paginas indefinido" : pageCount } Pages</p>
                         <div className="BuyFavorite">
-                            <a className="myButton" href={urlBuy}>Buy</a><br/>
+                            <a className="myButton" href={urlBuy}><p className="labelBuy">Buy</p></a>
                             <span className={`${favorited}`} onClick={()=>favoriteBook()}>
                                 <AiOutlineHeart/>
                             </span>
@@ -122,7 +139,7 @@ function BookDetails(){
                     
                 </div>
                 <div className="divDescription">
-                {description}
+                    <div dangerouslySetInnerHTML={{ __html: description }} />
                 <div className="divButtons">
             
                 </div>
