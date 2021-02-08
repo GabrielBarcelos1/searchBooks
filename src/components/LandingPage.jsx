@@ -29,7 +29,7 @@ function LandingPage(){
                 <div className="divConteudoHome">
                     
  
-                    <p className="p2">Find the<a className="wordBook"> book</a> you're looking for in minutes</p>
+                    <p className="p2">Find the book you're looking for in minutes</p>
                     <div className="searchHome">
                         <input  type="text" placeholder="Name of the book" id="userSearch" autoComplete="off" onKeyPress={(e)=>redirect(e)} onChange={(e)=>inputAtt(e)}></input>
                         <Link to="/finder">
