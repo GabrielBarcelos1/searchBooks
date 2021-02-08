@@ -122,7 +122,7 @@ function Finder() {
           {apperTotal && id === undefined && !maxStack && arrBooks ? <a className="myButton" onClick={ ()=> ShowMoreFunction()}>Show More</a> : ""}
           {!arrBooks && id === undefined ? <div className="notFoundSearch">
             <img src={notFoundSearch} alt="notFoundSearch" className="imageNotFoundSearch"></img>
-            <p>nada encontrado</p>
+            <p>Search not found</p>
             </div>: ""}
          
       </div>
