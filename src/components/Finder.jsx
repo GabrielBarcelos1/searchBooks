@@ -37,7 +37,7 @@ function Finder() {
 
           if(e === 13 ||    e?.charCode  === 13){
           const userSearch = document.getElementById("userSearch").value
-            if(userSearch!==""){
+            if(userSearch!=="" ){
             setLoadingGif(false)
             setLoading(true)
             Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${userSearch}&maxResults=${showMore}`).then(res=>{
@@ -114,7 +114,7 @@ function Finder() {
           {id === undefined ?<img src={search} className={Loading ? "esconder" : "fotoSearch"}/>: ""}
           {id === undefined ?
           <BookList
-          arrBooks= {arrBooks}
+          arrBooks= {arrBooks || []}
           totalBooks={totalBooks}
           apperTotal={apperTotal}
           />: ""}

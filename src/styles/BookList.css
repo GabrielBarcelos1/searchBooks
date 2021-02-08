@@ -11,14 +11,22 @@
     margin-bottom: 15px;
 }
 
-@media screen  and (max-width: 1274px){
+@media screen  and (max-width: 3000px){
     .divBookList{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
        
+    }    
+}
+@media screen  and (max-width: 800px){
+    .divBookList{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }    
 
 }
-@media screen  and (max-width: 845px){ 
+@media screen  and (max-width: 700px){
+    .divBookList{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }    
 
 }
 @media screen  and (max-width: 500px){
