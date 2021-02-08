@@ -9,6 +9,7 @@ import { Link, useParams } from 'react-router-dom'
 import { BookContext } from '../providers/ContextBook'
 import { useHistory } from 'react-router-dom'
 import "side-drawer"
+import notFoundSearch from '../images/not-found-search.png'
 
 
 
@@ -34,10 +35,9 @@ function Finder() {
   },[showMore])
     const findBoooks = (e) =>{
         function  findBoooksAsync(e){
-
           if(e === 13 ||    e?.charCode  === 13){
           const userSearch = document.getElementById("userSearch").value
-            if(userSearch!=="" ){
+            if(userSearch!==""  ){
             setLoadingGif(false)
             setLoading(true)
             Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${userSearch}&maxResults=${showMore}`).then(res=>{
@@ -111,7 +111,7 @@ function Finder() {
               </div>
              
           </div>
-          {id === undefined ?<img src={search} className={Loading ? "esconder" : "fotoSearch"}/>: ""}
+          {id === undefined  ? <img src={search} className={Loading ? "esconder" : "fotoSearch"}/>: ""}
           {id === undefined ?
           <BookList
           arrBooks= {arrBooks || []}
@@ -119,7 +119,11 @@ function Finder() {
           apperTotal={apperTotal}
           />: ""}
            <img src="https://i.stack.imgur.com/kOnzy.gif" className={loadingGif ? "esconder" : "gif"} alt="loading"/>
-          {apperTotal && id === undefined && !maxStack ? <a className="myButton" onClick={ ()=> ShowMoreFunction()}>Show More</a> : ""}
+          {apperTotal && id === undefined && !maxStack && arrBooks ? <a className="myButton" onClick={ ()=> ShowMoreFunction()}>Show More</a> : ""}
+          {!arrBooks && id === undefined ? <div className="notFoundSearch">
+            <img src={notFoundSearch} alt="notFoundSearch" className="imageNotFoundSearch"></img>
+            <p>nada encontrado</p>
+            </div>: ""}
          
       </div>
       
