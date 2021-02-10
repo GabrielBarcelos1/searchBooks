@@ -31,38 +31,37 @@ function Finder() {
     findBooks();
     if (showMore >= 40) {
       setMaxStack(true);
-    }else{
+    } else {
       setMaxStack(false);
     }
   }, [showMore]);
   function findBooks() {
-      if (valueInput !== "") {
-        if (valueInput !== lastSearch) {
-          setShowMore(12);
-        }
-        setLoadingGif(false);
-        setLoading(true);
-        Axios.get(
-          `https://www.googleapis.com/books/v1/volumes?q=${valueInput}&maxResults=${
-            valueInput !== lastSearch ? 12 : showMore
-          }`
-        )
-          .then((res) => {
-            setArrBooks(res.data.items);
-            setLoadingGif(true);
-            setApperTotal(true);
-            setLastSearch(valueInput);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
+    if (valueInput !== "") {
+      if (valueInput !== lastSearch) {
+        setShowMore(12);
       }
-  }
-  function findBooksEnter(e){
-    if (e === 13 || e?.charCode === 13) {
-      findBooks()
+      setLoadingGif(false);
+      setLoading(true);
+      Axios.get(
+        `https://www.googleapis.com/books/v1/volumes?q=${valueInput}&maxResults=${
+          valueInput !== lastSearch ? 12 : showMore
+        }`
+      )
+        .then((res) => {
+          setArrBooks(res.data.items);
+          setLoadingGif(true);
+          setApperTotal(true);
+          setLastSearch(valueInput);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
-
+  }
+  function findBooksEnter(e) {
+    if (e === 13 || e?.charCode === 13) {
+      findBooks();
+    }
   }
   function ShowMoreFunction() {
     if (showMore <= 34) {
@@ -143,10 +142,7 @@ function Finder() {
       )}
       {id === undefined && (
         <section>
-          <BookList
-            arrBooks={arrBooks || []}
-            apperTotal={apperTotal}
-          />
+          <BookList arrBooks={arrBooks || []} apperTotal={apperTotal} />
           <img
             src="https://i.stack.imgur.com/kOnzy.gif"
             className={loadingGif ? "esconder" : "gif"}

@@ -43,10 +43,10 @@
   background-color: white !important;
   font-size: 15px;
   padding-left: 10px;
-	height: 50px;
-	border-radius: 100px;
+  height: 50px;
+  border-radius: 100px;
 }
-.searchHome input:focus{
+.searchHome input:focus {
   background-color: white !important;
 }
 
@@ -57,8 +57,8 @@
   align-items: center;
   justify-content: center;
 }
-.iconSearch{
-	margin-right: 10px;
+.iconSearch {
+  margin-right: 10px;
 }
 @media screen and (max-width: 760px) {
   .divPrincipalHome {

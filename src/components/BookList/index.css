@@ -1,6 +1,6 @@
 .divBookList {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   column-gap: 20px;
   row-gap: 30px;
   margin: 15px auto;
@@ -13,21 +13,21 @@
 
 @media screen and (max-width: 3000px) {
   .divBookList {
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 @media screen and (max-width: 800px) {
   .divBookList {
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 @media screen and (max-width: 700px) {
   .divBookList {
-    grid-template-columns:repeat(4,1fr) ;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media screen and (max-width: 500px) {
   .divBookList {
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }

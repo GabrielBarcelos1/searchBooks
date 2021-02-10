@@ -34,7 +34,11 @@ function LandingPage() {
               onChange={inputAtt}
             ></input>
             <Link to="/finder">
-              <AiOutlineSearch size="1.3em" color="#877703"  className="iconSearch"/>
+              <AiOutlineSearch
+                size="1.3em"
+                color="#877703"
+                className="iconSearch"
+              />
             </Link>
           </div>
         </div>
