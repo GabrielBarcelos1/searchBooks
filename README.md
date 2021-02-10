@@ -47,6 +47,7 @@ Site hospedado: https://search-books-three.vercel.app/
 <h1 align="center">
     <img  src="https://github.com/GabrielBarcelos1/searchBooks/blob/master/readmeprintList.png" />
 </h1>
+
 ## 📱 Mobile(Detalhes)
 <h1 align="center">
     <img  src="https://github.com/GabrielBarcelos1/searchBooks/blob/master/readmeprintDetails.png" />
