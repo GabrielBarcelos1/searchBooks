@@ -1,0 +1,80 @@
+.divPrincipalHome {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.p1 {
+  font-size: 3rem;
+}
+.wordBook {
+  color: rgb(135, 119, 3);
+}
+.myButton {
+  border: 1px solid #549ae6;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 10px 42px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #549ae6;
+  border-radius: 20px;
+  background-color: #549ae6;
+  margin-bottom: 20px;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+.searchHome {
+  border-radius: 100px;
+  background: white;
+  width: 100%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 220px;
+}
+.searchHome input {
+  border: 0;
+  background-color: white !important;
+  font-size: 15px;
+  padding-left: 10px;
+	height: 50px;
+	border-radius: 100px;
+}
+.searchHome input:focus{
+  background-color: white !important;
+}
+
+.boxHome {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconSearch{
+	margin-right: 10px;
+}
+@media screen and (max-width: 760px) {
+  .divPrincipalHome {
+    flex-direction: column;
+  }
+  .p1 {
+    text-align: center;
+  }
+  .p2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .divConteudoHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
