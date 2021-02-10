@@ -42,14 +42,10 @@ O projeto SearchBooks foi desenvolvido para praticar conceitos de ReactJs, dentr
 
 Site hospedado: https://search-books-three.vercel.app/
 
-## 🌐 Frontend
-<h1 align="center">
-    <img  src="https://github.com/GabrielBarcelos1/searchBooks/blob/master/searchBooks.gif" />
-</h1>
 
-## 📱 Mobile(Responsividade)
+## 📱 Mobile
 <h1 align="center">
-    <img  src="https://github.com/GabrielBarcelos1/searchBooks/blob/master/searchBooksMobile%20.gif" />
+    <img  src="https://github.com/GabrielBarcelos1/searchBooks/blob/master/Screenshot_2.png" />
 </h1>
 
     
